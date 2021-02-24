@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/aa611089c0.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -71,10 +72,44 @@
                 </div>
             </div>
         </nav>
+        @guest
+        @else
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span>Gestión de incidencias</span>
+                        </h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('ticket')}}">
+                                    <i class="far fa-eye"></i>
+                                    Mis tickets <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('ticket.create')}}">
+                                    <i class="fas fa-plus"></i>
+                                    Crear un ticket
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                @endguest
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+                @guest
+                    <main class="py-4">
+                        @yield('content')
+                    </main>
+                @else
+                    <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                        @yield('content')
+                    </main>
+                @endguest
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,60 @@
+.navbar {
+    height: 55px;
+}
+
+.status {
+    width: fit-content;
+    height: 30px;
+    border-radius: 32px;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 13px;
+    box-sizing: border-box;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.75;
+    letter-spacing: 0.45px;
+}
+
+.OPEN {
+    background-color: #3CD4A0;
+}
+
+.CLOSE {
+    background-color: #616161;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.sidebar {
+    margin-top: 55px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);
+}
+
+.nav-link {
+    color: #333;
+}
+
+body {
+    overflow: hidden;
+}
+
+.ticket-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1px rgba(202, 202, 202,0.84);
+}
+
+.description {
+    overflow-wrap: break-word;
+}
+
