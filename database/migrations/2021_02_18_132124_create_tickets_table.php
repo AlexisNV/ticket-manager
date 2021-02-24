@@ -17,7 +17,6 @@ class CreateTicketsTable extends Migration
             $table->string('uid');
             $table->primary('uid');
             $table->string('title');
-            $table->string('category');
             $table->enum('priority', ['LOW', 'MEDIUM', 'HIGH']);
             $table->string('description', 4000);
             $table->enum('status', ['OPEN', 'CLOSE'])->default('OPEN');
