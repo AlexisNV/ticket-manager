@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/tickets', 'TicketController@index')->name('ticket');
+    Route::get('/tickets/show/{uid}', 'TicketController@show')->name('ticket.show');
+    Route::get('/tickets/create', 'TicketController@create')->name('ticket.create');
+    Route::post('/tickets/store', 'TicketController@store')->name('ticket.store');
+    Route::put('/tickets/close/{uid}', 'TicketController@update')->name('ticket.close');
+});
